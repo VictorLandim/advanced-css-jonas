@@ -1,0 +1,20 @@
+//resets, body and html styles
+*,
+*::before,
+*::after {
+    /*border and padding dont add up to total width*/
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /* 10px is 10/16 -> 62.5% of the default font size */
+    // defines what 1rem is!
+    font-size: 62.5%;
+}
+
+/*inheritance*/
+body {
+    box-sizing: border-box;
+}
