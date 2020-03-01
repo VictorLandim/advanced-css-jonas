@@ -6,6 +6,10 @@
     border-radius: 3px;
     box-shadow: 0px 1.5rem 4rem 0px rgba($color-black, .15);
     transition: all .4s;
+
+    @include responsive(tab-port) {
+        padding: 2rem;
+    }
     
     &:hover {
         transform: scale(1.03) translateY(-1.5rem);
@@ -17,10 +21,11 @@
         background-image: linear-gradient(to right, $color-primary, $color-primary-dark);
         display: inline-block;
         -webkit-background-clip: text;
+        background-clip: text;
         color: transparent;
-    }
 
-    &__text {
-        
+        @include responsive(tab-port) {
+            margin-bottom: 0;
+        }
     }
 }

@@ -5,3 +5,59 @@
         clear: both;
     }
 }
+
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+//media query manager
+
+//breakpoints:
+//0 - 600px         --> phone
+//600px - 900px     --> tablet portrait
+//900px - 1200px    --> tablet landscape
+//1200px -- 1800px  --> regular styles
+//1800px +          --> large screens
+
+
+// rems wont work well on media queries
+// also, rem in media queries ignore changes in fontsize
+
+//1em == 16px (coming from the browser)
+
+//best order to turn site responsive
+// base + typography
+// layout + grid
+// page layout
+// components
+
+@mixin responsive($breakpoint) {
+    //args:
+    //phone
+    //tab-port
+    //tab-land
+    //large
+
+    @if $breakpoint == phone {
+        //600px
+        @media (max-width: 37.5em) { @content };
+    }
+
+    @if $breakpoint == tab-port {
+        //900px
+        @media (max-width: 56.25em) { @content };
+    }
+
+    @if $breakpoint == tab-land {
+        //1200px
+        @media (max-width: 75em) { @content };
+    }
+
+    @if $breakpoint == large {
+        //1800px
+        @media (min-width: 112.5em) { @content };
+    }
+}

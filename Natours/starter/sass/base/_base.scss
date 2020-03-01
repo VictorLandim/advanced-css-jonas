@@ -10,11 +10,31 @@
 
 html {
     /* 10px is 10/16 -> 62.5% of the default font size */
-    // defines what 1rem is!
+    // defines what 1rem is (== 10px)!
     font-size: 62.5%;
+
+    //width < 1200?
+    @include responsive(tab-land) {
+        font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25% 
+    }
+
+    //width < 900?
+    //applies both to phone and tablet
+    @include responsive(tab-port) {
+        font-size: 50%; // 1rem = 8px, 8/16 = 50%
+    }
+
+    @include responsive(large) {
+        font-size: 75%; //1rem = 12px, 12/16 = 75%
+    }
 }
 
 /*inheritance*/
 body {
     box-sizing: border-box;
+    padding: 3rem;
+
+    @include responsive(tab-port) {
+        padding: 0;
+    }
 }
